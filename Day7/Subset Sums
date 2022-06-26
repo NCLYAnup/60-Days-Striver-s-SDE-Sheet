@@ -1,0 +1,20 @@
+public:
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        // Write Your Code here
+      if(N == 0)
+       {
+           vector<int> ans;
+           ans.push_back(0);
+           return ans;
+       }
+       vector<int> output = subsetSums(arr,N-1);
+       int size = output.size();
+       for(int i=0;i<size;i++)
+       {
+           output.push_back(output[i]+arr[N-1]);
+       }
+       return output;
+        
+    }
+};
