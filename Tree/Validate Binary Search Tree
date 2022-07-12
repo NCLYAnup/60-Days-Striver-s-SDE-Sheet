@@ -1,0 +1,25 @@
+class Solution {
+        int prev = INT_MAX;
+    int i = 0;
+    
+public:
+    bool isValidBST(TreeNode* root) {
+        if(root==NULL) return true;
+        bool f1 = isValidBST(root->left);
+        
+        if(i==0){
+            prev = root->val;
+        }
+        else{
+            if(root->val > prev) {
+                 prev = root->val;
+            }
+            else return false;
+        }
+        i++;
+        bool f2 = isValidBST(root->right);
+        
+        return f1 and f2;
+      
+    }
+};
