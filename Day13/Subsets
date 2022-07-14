@@ -1,0 +1,20 @@
+public:
+     void f(vector<int>&nums,vector<vector<int>> &ans,vector<int> &v,int i)
+    {
+        if(i==nums.size()) // base case
+        {
+            ans.push_back(v);  // when you hit a base case then add this vector to the answer.
+            return;
+        }
+        v.push_back(nums[i]); // Including the current element 
+        f(nums,ans,v,i+1); // taking a recursive call and generating vector including the current element
+        v.pop_back(); // Excluding the current element
+        f(nums,ans,v,i+1); // Calling a recursive call and generating the vectors exluding current element.
+    }
+    vector<vector<int>> subsets(vector<int>& nums) {
+          vector<vector<int>> ans;
+        vector<int> v;
+        f(nums,ans,v,0); // 0 is passed as the starting index of the given vector
+        return ans;
+    }
+};
