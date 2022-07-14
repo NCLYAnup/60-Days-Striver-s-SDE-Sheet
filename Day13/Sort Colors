@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        
+        int count[3]={0};  //Store the count here
+        for(int element:nums){
+            count[element]++;
+        }
+        int i=0;
+        for(int num=0;num<3;num++){ //For the three values
+            while(count[num]--){ //Filling nums as per the count
+                nums[i]=num;
+                i++;
+            }
+        }
+        
+    }
+};
